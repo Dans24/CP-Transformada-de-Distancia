@@ -1,7 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include "pbm.h"
 #include "dist.h"
 
 int main(int argc, char* argv[]) {
@@ -25,6 +21,8 @@ unsigned int dist(unsigned int height, unsigned int width, pixel (*img)[width], 
     int whitePixel = 1; // inicializado a 1 para entrar no for loop
     for (iter = 1; whitePixel; iter++) { // trocar por um "do while"?
         whitePixel = 0;
+        //#pragma omp parallel
+        //#pragma omp for schedule(dynamic,10) firstprivate(height,width)
         for (int i = 1; i < height - 1; i++) {
             for (int j = 1; j < width - 1; j++) {
                 if (img[i][j] == MIN_PIXEL_VALUE) continue; // avança pixeis pretos
@@ -47,9 +45,13 @@ unsigned int dist(unsigned int height, unsigned int width, pixel (*img)[width], 
             }
         }
         // swap source e aux
+        //#pragma omp single
+        //{
         pixel (*temp)[width] = img;
         img = aux;
         aux = temp;
+        //}
+        //#pragma omp barrier
     }
     
     if(iter % 2 == 1) {
