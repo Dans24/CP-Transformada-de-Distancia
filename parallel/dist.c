@@ -22,7 +22,7 @@ int main(int argc, char* argv[]) {
     free(output);
     //guardar em ficheiro o tempo total
     FILE* times = fopen(outputTime, "a");
-    int n_threads = omp_get_thread_num();
+    int n_threads = omp_get_num_threads();
     fprintf(times, "Tempo do algoritmo com %d threads : %f\n",n_threads,time);
     return 0;
 }
@@ -32,9 +32,8 @@ unsigned int dist(unsigned int height, unsigned int width, pixel (*img)[width], 
     int iter;
     int whitePixel = 1; // inicializado a 1 para entrar no for loop
     for (iter = 1; iter < MAX_PIXEL_VALUE && whitePixel; iter++) { // trocar por um "do while"?
-        //double start_time = omp_get_wtime();
         whitePixel = 0;
-        #pragma omp parallel for
+        #pragma omp parallel for collapse(2)
         for (int i = 1; i < height - 1; i++) {
             for (int j = 1; j < width - 1; j++) {
                 if (img[i][j] == MIN_PIXEL_VALUE) continue; // avança pixeis pretos
@@ -56,16 +55,9 @@ unsigned int dist(unsigned int height, unsigned int width, pixel (*img)[width], 
                 }
             }
         }
-        //double time = omp_get_wtime() - start_time;
-        //printf("time: %f s\n", time);
-        // swap source e aux
-        //#pragma omp single
-        //{
         pixel (*temp)[width] = img;
         img = aux;
         aux = temp;
-        //}
-        //#pragma omp barrier
     }
     
     if(iter % 2 == 1) {
