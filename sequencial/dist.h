@@ -1,3 +1,11 @@
+#ifndef DIST_H
+#define DIST_H
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <omp.h>
+#include "pbm.h"
 /**
  * @brief Gera uma matriz com a transformada de distância
  * A matrix de source deve apenas conter valores MIN_PIXEL_VALUE ou MAX_PIXEL_VALUE.
@@ -13,3 +21,5 @@
  * @return Número de iterações
 */
 unsigned int dist(unsigned int height, unsigned int width, pixel (*img)[width], pixel (**output)[width]);
+
+#endif

@@ -1,8 +1,16 @@
-typedef unsigned char pixel;
+#ifndef PBM_H
+#define PBM_H
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+
+typedef unsigned int pixel;
 
 /// Valor máximo do pixel
 #if !defined(MAX_PIXEL_VALUE)
-#define MAX_PIXEL_VALUE 255
+#define MAX_PIXEL_VALUE 4294967295
 #endif // MAX_PIXEL_VALUE
 
 /// Valor mínimo do pixel
@@ -39,3 +47,5 @@ void setImageP2(FILE* f, unsigned int height, unsigned int width, pixel (*img)[w
  * @param img Matriz da imagem a ser imprimida no ecrã
  */
 void printImage(unsigned int height, unsigned int width, pixel (*img)[width]);
+
+#endif

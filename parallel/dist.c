@@ -1,23 +1,29 @@
 #include "dist.h"
 
 int main(int argc, char* argv[]) {
-    if(argc < 3) return 1;
+    if(argc < 4) return 1;
     char* inputFilename = argv[1];
     char* outputFilename = argv[2];
+    char* outputTime = argv[3];
     unsigned int height;
     unsigned int width;
     FILE* inputFile = fopen(inputFilename, "r");
     pixel (*input)[width] = (pixel (*)[width]) getImageP1(inputFile, &height, &width);
     if(!input) return 1;
     pixel (*output)[width];
+    //tempo antes de começar o algoritmo
     double start_time = omp_get_wtime();
     int iter = dist(height, width, input, &output);
+    //tempo do algoritmo
     double time = omp_get_wtime() - start_time;
-    printf("time: %f s\n", time);
     if(!output) return 1;
     FILE* outputFile = fopen(outputFilename, "w");
     setImageP2(outputFile, height, width, output, iter);
     free(output);
+    //guardar em ficheiro o tempo total
+    FILE* times = fopen(outputTime, "a");
+    int n_threads = omp_get_thread_num();
+    fprintf(times, "Tempo do algoritmo com %d threads : %f\n",n_threads,time);
     return 0;
 }
 
