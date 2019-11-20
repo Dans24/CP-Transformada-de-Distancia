@@ -6,11 +6,11 @@
 #include <string.h>
 #include <unistd.h>
 
-typedef unsigned char pixel;
+typedef unsigned int pixel;
 
 /// Valor máximo do pixel
 #if !defined(MAX_PIXEL_VALUE)
-#define MAX_PIXEL_VALUE 255
+#define MAX_PIXEL_VALUE 4294967295
 #endif // MAX_PIXEL_VALUE
 
 /// Valor mínimo do pixel
