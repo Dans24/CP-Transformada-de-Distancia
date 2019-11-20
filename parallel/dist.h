@@ -1,3 +1,6 @@
+#ifndef DIST_H
+#define DIST_H
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -19,3 +22,5 @@
  * @return Número de iterações
 */
 unsigned int dist(unsigned int height, unsigned int width, pixel (*img)[width], pixel (**output)[width]);
+
+#endif

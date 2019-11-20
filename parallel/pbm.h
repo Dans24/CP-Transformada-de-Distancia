@@ -1,3 +1,6 @@
+#ifndef PBM_H
+#define PBM_H
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -44,3 +47,5 @@ void setImageP2(FILE* f, unsigned int height, unsigned int width, pixel (*img)[w
  * @param img Matriz da imagem a ser imprimida no ecrã
  */
 void printImage(unsigned int height, unsigned int width, pixel (*img)[width]);
+
+#endif
