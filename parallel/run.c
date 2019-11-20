@@ -10,11 +10,18 @@ int main() {
 		system(command);
 		sprintf(img1,"./exec imgTeste/gun.pbm imgResult/gun%d.pbm times/timegun.txt",i);
 		system(img1);
-		sprintf(img1,"./exec imgTeste/flowers.pbm imgResult/flowers%d.pbm times/timeflowers.txt",i);
-		system(img1);
-		sprintf(img1,"./exec imgTeste/digital.pbm imgResult/digital%d.pbm times/timedigital.txt",i);
-		system(img1);
-		sprintf(img1,"./exec imgTeste/exemplo.pbm imgResult/exemplo%d.pbm times/timeexemplo.txt",i);
-		system(img1);
+		sprintf(img2,"./exec imgTeste/flowers.pbm imgResult/flowers%d.pbm times/timeflowers.txt",i);
+		system(img2);
+		sprintf(img3,"./exec imgTeste/digital.pbm imgResult/digital%d.pbm times/timedigital.txt",i);
+		system(img3);
+		sprintf(img4,"./exec imgTeste/exemplo.pbm imgResult/exemplo%d.pbm times/timeexemplo.txt",i);
+		system(img4);
 	}
+	free(clean);
+	free(command);
+	free(img1);
+	free(img2);
+	free(img3);
+	free(img4);
+	return 1;
 }
