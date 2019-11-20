@@ -33,7 +33,7 @@ unsigned int dist(unsigned int height, unsigned int width, pixel (*img)[width], 
     int whitePixel = 1; // inicializado a 1 para entrar no for loop
     for (iter = 1; iter < MAX_PIXEL_VALUE && whitePixel; iter++) { // trocar por um "do while"?
         whitePixel = 0;
-        #pragma omp parallel for collapse(2)
+        #pragma omp parallel for
         for (int i = 1; i < height - 1; i++) {
             for (int j = 1; j < width - 1; j++) {
                 if (img[i][j] == MIN_PIXEL_VALUE) continue; // avança pixeis pretos
