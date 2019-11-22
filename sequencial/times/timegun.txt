@@ -30,3 +30,5 @@ Algorithm time : 29.033138
 Algorithm time : 29.036693
 Algorithm time : 29.038681
 Algorithm time : 29.032920
+
+Tempo médio: 29.03...

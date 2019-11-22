@@ -30,3 +30,5 @@ Algorithm time : 0.445933
 Algorithm time : 0.446179
 Algorithm time : 0.446573
 Algorithm time : 0.446604
+
+Tempo médio: 0.44...

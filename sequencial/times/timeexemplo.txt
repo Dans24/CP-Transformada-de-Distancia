@@ -4,7 +4,7 @@ Algorithm time : 0.000008
 Algorithm time : 0.000008
 Algorithm time : 0.000009
 Algorithm time : 0.000008
-Algorithm time : 0.000018
+Algorithm time : 0.000018 <-
 Algorithm time : 0.000009
 Algorithm time : 0.000008
 Algorithm time : 0.000007
@@ -30,3 +30,5 @@ Algorithm time : 0.000008
 Algorithm time : 0.000008
 Algorithm time : 0.000008
 Algorithm time : 0.000008
+
+Tempo médio: 0.000008
