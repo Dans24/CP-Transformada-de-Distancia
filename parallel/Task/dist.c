@@ -6,6 +6,7 @@ int main(int argc, char* argv[]) {
     char* inputFilename = argv[1];
     char* outputFilename = argv[2];
     char* outputTime = argv[3];
+    int n_threads = atoi(argv[4]);
     unsigned int height;
     unsigned int width;
     FILE* inputFile = fopen(inputFilename, "r");
@@ -14,7 +15,7 @@ int main(int argc, char* argv[]) {
     pixel (*output)[width];
     //tempo antes de começar o algoritmo
     double start_time = omp_get_wtime();
-    int iter = dist(height, width, input, &output);
+    int iter = dist(n_threads,height, width, input, &output);
     //tempo do algoritmo
     double time = omp_get_wtime() - start_time;
     if(!output) return 1;
@@ -23,16 +24,15 @@ int main(int argc, char* argv[]) {
     free(output);
     //guardar em ficheiro o tempo total
     FILE* times = fopen(outputTime, "a");
-    int n_threads = omp_get_num_threads();
     fprintf(times, "Tempo do algoritmo com %d threads : %f\n",n_threads,time);
     return 0;
 }
 
-unsigned int dist(unsigned int height, unsigned int width, pixel (*img)[width], pixel (**output)[width]) {
+unsigned int dist(int n_threads, unsigned int height, unsigned int width, pixel (*img)[width], pixel (**output)[width]) {
     pixel (*aux)[width] = calloc(1, sizeof(pixel[height][width]));
     int iter;
     int whitePixel = 1; // inicializado a 1 para entrar no for loop
-    #pragma omp parallel num_threads(4)
+    #pragma omp parallel num_threads(n_threads)
     for (iter = 1; iter < MAX_PIXEL_VALUE && whitePixel; iter++) { // trocar por um "do while"?
         whitePixel = 0;
         int chunkHeight = 256;

@@ -21,6 +21,6 @@
  * @param output Retorna a matriz processada
  * @return Número de iterações
 */
-unsigned int dist(unsigned int height, unsigned int width, pixel (*img)[width], pixel (**output)[width]);
+unsigned int dist(int n_threads, unsigned int height, unsigned int width, pixel (*img)[width], pixel (**output)[width]);
 
 #endif
