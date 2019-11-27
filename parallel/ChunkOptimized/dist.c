@@ -46,7 +46,7 @@ unsigned int dist(int n_threads, unsigned int height, unsigned int width, pixel 
         #pragma omp parallel num_threads(n_threads)
         {
             whitePixel = 0;
-            #pragma omp for schedule(guided) reduction(||:whitePixel)
+            #pragma omp for schedule(guided) nowait reduction(||:whitePixel)
             for(int i = 1; i < height - chunkHeight - 1; i += chunkHeight - 1) {
                 for(int j = 1; j < width - chunkHeight - 1; j += chunkWidth - 1) {
                     int ci = i / (chunkHeight-2);
@@ -59,7 +59,7 @@ unsigned int dist(int n_threads, unsigned int height, unsigned int width, pixel 
             }
             int i = height / (chunkHeight - 1);
             int ci = i / (chunkHeight-2);
-            #pragma omp for schedule(guided) reduction(||:whitePixel)
+            #pragma omp for schedule(guided) nowait reduction(||:whitePixel)
             for(int j = 1; j < width - chunkHeight - 1; j += chunkWidth - 1) {
                 int cj = j / (chunkWidth-2);
                 if(hasWhite[ci][cj] == 0) continue;
