@@ -1,0 +1,7 @@
+Tempo do algoritmo com 1 threads : 5.995816
+Tempo do algoritmo com 1 threads : 6.017514
+Tempo do algoritmo com 1 threads : 5.992899
+Tempo do algoritmo com 1 threads : 6.011781
+Tempo do algoritmo com 1 threads : 8.073558
+Tempo do algoritmo com 1 threads : 5.038336
+Tempo do algoritmo com 1 threads : 5.834407
