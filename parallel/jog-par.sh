@@ -1,11 +1,11 @@
 #!/bin/bash
 #
-#PBS -N parallel
+#PBS -N CP_project_parallel
 #PBS -l walltime=1:00:00
 #PBS -l nodes=1:ppn=40:r652
-#PBS -qcpar mei
+#PBS -qcpar
 
-module load gcc/7.1.0
+module load gcc/5.3.0
 
 cd CP/Projeto/parallel/ChunkOptimized/
 

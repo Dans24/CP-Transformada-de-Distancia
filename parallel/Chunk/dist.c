@@ -2,11 +2,9 @@
 int distChunk(unsigned int ii, unsigned int jj, unsigned int height, unsigned int width, unsigned int imgHeight, unsigned int imgWidth, pixel (*in)[imgWidth], pixel (*out)[imgWidth]);
 
 int main(int argc, char* argv[]) {
-    if(argc < 5) return 1;
+    if(argc < 3) return 1;
     char* inputFilename = argv[1];
-    char* outputFilename = argv[2];
-    char* outputTime = argv[3];
-    int n_threads = atoi(argv[4]);
+    char* outputTime = argv[2];
     unsigned int height;
     unsigned int width;
     FILE* inputFile = fopen(inputFilename, "r");
@@ -15,31 +13,36 @@ int main(int argc, char* argv[]) {
     pixel (*output)[width];
     //tempo antes de começar o algoritmo
     double start_time = omp_get_wtime();
-    int iter = dist(n_threads,height, width, input, &output);
+    int iter = dist(height, width, input, &output);
     //tempo do algoritmo
     double time = omp_get_wtime() - start_time;
     if(!output) return 1;
-    FILE* outputFile = fopen(outputFilename, "w");
-    setImageP2(outputFile, height, width, output, iter);
     free(output);
     //guardar em ficheiro o tempo total
     FILE* times = fopen(outputTime, "a");
+    int n_threads = 0;
+    #pragma omp parallel
+    {
+        #pragma omp master
+        {
+            n_threads = omp_get_num_threads();
+        }
+    }
     fprintf(times, "Tempo do algoritmo com %d threads : %f\n",n_threads,time);
     return 0;
 }
 
-unsigned int dist(int n_threads, unsigned int height, unsigned int width, pixel (*img)[width], pixel (**output)[width]) {
+unsigned int dist(unsigned int height, unsigned int width, pixel (*img)[width], pixel (**output)[width]) {
     pixel (*aux)[width] = calloc(1, sizeof(pixel[height][width]));
     int iter;
     int whitePixel = 1; // inicializado a 1 para entrar no for loop
-    #pragma omp parallel num_threads(n_threads)
+    #pragma omp parallel
     for (iter = 1; iter < MAX_PIXEL_VALUE && whitePixel; iter++) { // trocar por um "do while"?
         whitePixel = 0;
         int chunkHeight = 256;
         int chunkWidth = 2048;
         int i = 1;
         for(; i + chunkHeight < height - 1; i += chunkHeight-1) {
-            //printf("> %u\n", i);
             for(int j = 1; j + chunkHeight < width - 1; j += chunkWidth-1) {
                 #pragma omp task shared(whitePixel) depend(in: img[i:chunkHeight][j:chunkWidth], whitePixel) \
                                                     depend(out: aux[i:chunkHeight][j:chunkWidth])
@@ -47,7 +50,6 @@ unsigned int dist(int n_threads, unsigned int height, unsigned int width, pixel 
                 whitePixel |= distChunk(i, j, chunkHeight, chunkWidth, height, width, img, aux);
                 printf("%u %u %u\n", i, j, iter);
                                                     }
-                //printf("%u\n", whitePixel);
             }
         }
         #pragma omp task shared(whitePixel)
@@ -68,10 +70,8 @@ unsigned int dist(int n_threads, unsigned int height, unsigned int width, pixel 
 
 int distChunk(unsigned int ii, unsigned int jj, unsigned int height, unsigned int width, unsigned int imgHeight, unsigned int imgWidth, pixel (*in)[imgWidth], pixel (*out)[imgWidth]) {
     int whitePixel = 0;
-    //printf("[(%u,%u) (%u, %u)]\n", ii, height + ii, jj, width + jj);
     for (int i = ii; i < height + ii; i++) {
         for (int j = jj; j < width + jj; j++) {
-            //printf("%u %u %u\n", i, j, in[i][j]);
             if (in[i][j] == MIN_PIXEL_VALUE) continue; // avança pixeis pretos
             pixel min = MAX_PIXEL_VALUE;
             for (int ki = -1; ki <= 1; ki++) {
