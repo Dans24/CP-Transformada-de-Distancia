@@ -1,10 +1,9 @@
 #include "dist.h"
 
 int main(int argc, char* argv[]) {
-    if(argc < 4) return 1;
+    if(argc < 3) return 1;
     char* inputFilename = argv[1];
-    char* outputFilename = argv[2];
-    char* outputTime = argv[3];
+    char* outputTime = argv[2];
     unsigned int height;
     unsigned int width;
     pixel (*input)[width] = (pixel (*)[width]) getImageP1(fopen(inputFilename, "r"), &height, &width);
@@ -16,7 +15,6 @@ int main(int argc, char* argv[]) {
     //tempo depois de terminar o algoritmo
     double time = omp_get_wtime() - initial;
     if(!output) return 1;
-    setImageP2(fopen(outputFilename, "w"), height, width, output, iter);
     free(output);
     //guardar em ficheiro o tempo total
     FILE* times = fopen(outputTime, "a");

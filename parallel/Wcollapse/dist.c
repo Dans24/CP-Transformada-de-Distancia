@@ -1,10 +1,9 @@
 #include "dist.h"
 
 int main(int argc, char* argv[]) {
-    if(argc < 4) return 1;
+    if(argc < 3) return 1;
     char* inputFilename = argv[1];
-    char* outputFilename = argv[2];
-    char* outputTime = argv[3];
+    char* outputTime = argv[2];
     unsigned int height;
     unsigned int width;
     FILE* inputFile = fopen(inputFilename, "r");
@@ -17,12 +16,17 @@ int main(int argc, char* argv[]) {
     //tempo do algoritmo
     double time = omp_get_wtime() - start_time;
     if(!output) return 1;
-    FILE* outputFile = fopen(outputFilename, "w");
-    setImageP2(outputFile, height, width, output, iter);
     free(output);
     //guardar em ficheiro o tempo total
     FILE* times = fopen(outputTime, "a");
-    int n_threads = omp_get_num_threads();
+    int n_threads = 0;
+    #pragma omp parallel
+    {
+        #pragma omp master
+        {
+            n_threads = omp_get_num_threads();
+        }
+    }
     fprintf(times, "Tempo do algoritmo com %d threads : %f\n",n_threads,time);
     return 0;
 }

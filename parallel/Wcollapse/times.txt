@@ -1,1 +1,0 @@
-Tempo do algoritmo com 1 threads : 9.435583
