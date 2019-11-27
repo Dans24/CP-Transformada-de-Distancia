@@ -36,25 +36,25 @@ unsigned int dist(unsigned int height, unsigned int width, pixel (*img)[width], 
     pixel (*aux)[width] = calloc(1, sizeof(pixel[height][width]));
     int iter;
     int whitePixel = 1; // inicializado a 1 para entrar no for loop
-    #pragma omp parallel
+    int chunkHeight = 256;
+    int chunkWidth = 2048;
     for (iter = 1; iter < MAX_PIXEL_VALUE && whitePixel; iter++) { // trocar por um "do while"?
         whitePixel = 0;
-        int chunkHeight = 256;
-        int chunkWidth = 2048;
         int i = 1;
+        #pragma omp parallel
+        {
         for(; i + chunkHeight < height - 1; i += chunkHeight-1) {
             for(int j = 1; j + chunkHeight < width - 1; j += chunkWidth-1) {
                 #pragma omp task shared(whitePixel) depend(in: img[i:chunkHeight][j:chunkWidth], whitePixel) \
                                                     depend(out: aux[i:chunkHeight][j:chunkWidth])
                                                     {
                 whitePixel |= distChunk(i, j, chunkHeight, chunkWidth, height, width, img, aux);
-                printf("%u %u %u\n", i, j, iter);
                                                     }
             }
         }
         #pragma omp task shared(whitePixel)
         whitePixel |= distChunk(i, 1, height - i - 1, width - 1, height, width, img, aux);
-        #pragma omp taskwait
+        }
         pixel (*temp)[width] = img;
         img = aux;
         aux = temp;
