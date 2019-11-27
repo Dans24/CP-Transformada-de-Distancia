@@ -42,44 +42,45 @@ unsigned int dist(int n_threads, unsigned int height, unsigned int width, pixel 
             hasWhite[i][j] = 1;
         }
     }
-    #pragma omp parallel num_threads(n_threads)
     for (iter = 1; iter < MAX_PIXEL_VALUE && whitePixel;) { // trocar por um "do while"?
         printf("init\n");
         whitePixel = 0;
         int i = 1;
-        for(; i + chunkHeight < height - 1; i += chunkHeight-1) {
+        #pragma omp parallel num_threads(n_threads)
+        {
+            for(; i + chunkHeight < height - 1; i += chunkHeight-1) {
+                for(int j = 1; j + chunkHeight < width - 1; j += chunkWidth-1) {
+                    int ci = i / (chunkHeight-2);
+                    int cj = j / (chunkWidth-2);
+                    if(hasWhite[ci][cj] == 0) continue;
+                    #pragma omp task shared(whitePixel) depend(in: img[i-1:chunkHeight+2][j-1:chunkWidth+2], whitePixel) \
+                                                        depend(out: aux[i:chunkHeight][j:chunkWidth])
+                    {
+                        printf("inicio %u (%u, %u)\n", iter, ci, cj);
+                        int whitePixelTemp = distChunk(i, j, chunkHeight, chunkWidth, height, width, img, aux);
+                        hasWhite[ci][cj] = whitePixelTemp;
+                        #pragma omp atomic
+                        whitePixel |= whitePixelTemp;
+                        printf("fim %u (%u, %u) %u %u\n", iter, ci, cj, whitePixelTemp, omp_get_thread_num());
+                    }
+                }
+            }
+            int ci = i / (chunkHeight-2);
             for(int j = 1; j + chunkHeight < width - 1; j += chunkWidth-1) {
-                int ci = i / (chunkHeight-2);
                 int cj = j / (chunkWidth-2);
                 if(hasWhite[ci][cj] == 0) continue;
                 #pragma omp task shared(whitePixel) depend(in: img[i-1:chunkHeight+2][j-1:chunkWidth+2], whitePixel) \
                                                     depend(out: aux[i:chunkHeight][j:chunkWidth])
                 {
-                    printf("inicio1 %u\n", iter);
-                    int whitePixelTemp = distChunk(i, j, chunkHeight, chunkWidth, height, width, img, aux);
+                    printf("inicio %u (%u, %u)\n", iter, ci, cj);
+                    int whitePixelTemp = distChunk(i, j, height - i - 1, width - 1, height, width, img, aux);
                     hasWhite[ci][cj] = whitePixelTemp;
                     #pragma omp atomic
                     whitePixel |= whitePixelTemp;
-                    printf("fim1\n");
+                    printf("fim %u (%u,%u) %u %u\n", iter, ci, cj, whitePixelTemp, omp_get_thread_num());
                 }
             }
         }
-        int ci = i / (chunkHeight-2);
-        for(int j = 1; j + chunkHeight < width - 1; j += chunkWidth-1) {
-            int cj = j / (chunkWidth-2);
-            if(hasWhite[ci][cj] == 0) continue;
-            #pragma omp task shared(whitePixel) depend(in: img[i-1:chunkHeight+2][j-1:chunkWidth+2], whitePixel) \
-                                                depend(out: aux[i:chunkHeight][j:chunkWidth])
-            {
-                printf("inicio2 %u\n", iter);
-                int whitePixelTemp = distChunk(i, j, height - i - 1, width - 1, height, width, img, aux);
-                hasWhite[ci][cj] = whitePixelTemp;
-                #pragma omp atomic
-                whitePixel |= whitePixelTemp;
-                printf("fim2\n");
-            }
-        }
-        #pragma omp taskwait
         printf("%u %u------------------------------------------------\n", omp_get_thread_num(), iter);
         pixel (*temp)[width] = img;
         img = aux;
