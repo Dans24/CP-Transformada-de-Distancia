@@ -1,0 +1,12 @@
+Tempo do algoritmo com 4 threads : 0.011078
+Tempo do algoritmo com 8 threads : 0.007906
+Tempo do algoritmo com 10 threads : 0.007273
+Tempo do algoritmo com 16 threads : 0.009328
+Tempo do algoritmo com 4 threads : 0.011050
+Tempo do algoritmo com 8 threads : 0.007920
+Tempo do algoritmo com 16 threads : 0.011490
+Tempo do algoritmo com 2 threads : 0.017912
+Tempo do algoritmo com 4 threads : 0.013012
+Tempo do algoritmo com 8 threads : 0.008190
+Tempo do algoritmo com 10 threads : 0.007087
+Tempo do algoritmo com 16 threads : 0.008303
