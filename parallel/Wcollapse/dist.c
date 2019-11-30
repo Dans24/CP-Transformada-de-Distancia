@@ -3,7 +3,8 @@
 int main(int argc, char* argv[]) {
     if(argc < 3) return 1;
     char* inputFilename = argv[1];
-    char* outputTime = argv[2];
+    char* outputFilename = ARGV[2];
+    char* outputTime = argv[3];
     unsigned int height;
     unsigned int width;
     FILE* inputFile = fopen(inputFilename, "r");
@@ -16,6 +17,7 @@ int main(int argc, char* argv[]) {
     //tempo do algoritmo
     double time = omp_get_wtime() - start_time;
     if(!output) return 1;
+    setImageP2(fopen(outputFilename,"w"),height,width,output,iter);
     free(output);
     //guardar em ficheiro o tempo total
     FILE* times = fopen(outputTime, "a");

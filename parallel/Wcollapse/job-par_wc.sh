@@ -18,7 +18,7 @@ THREADS="2 4 8 10 16 20 32 40 2 4 8 10 16 20 32 40"
 for thread in $THREADS; do
 	echo $thread
 	export OMP_NUM_THREADS=$thread
-	./exec ../imgTeste/gun.pbm ../times/timegunWcollapse.txt
-	./exec ../imgTeste/digital.pbm ../times/timedigitalWcollapse.txt
-	./exec ../imgTeste/exemplo.pbm ../times/timeexemploWcollapse.txt
+	./exec ../imgTeste/gun.pbm ../imgResult/gunWcollapse.pbm ../times/timegunWcollapse.txt
+	./exec ../imgTeste/digital.pbm ../imgResult/digitalWcollapse.pbm ../times/timedigitalWcollapse.txt
+	./exec ../imgTeste/exemplo.pbm ../imgResult/exemploWcollapse.pbm ../times/timeexemploWcollapse.txt
 done
