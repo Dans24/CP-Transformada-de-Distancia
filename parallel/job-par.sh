@@ -13,7 +13,7 @@ rm -f exec
 
 gcc -O3 -std=c99 -fopenmp -lm pbm.c dist.c -o exec
 
-THREADS="2 4 8 10 16 20 32 40"
+THREADS="1 2 4 8 10 16 20 32 40 1 2 4 8 10 16 20 32 40"
 
 for thread in $THREADS; do
 	echo $thread
