@@ -17,12 +17,12 @@ I="1 2 3 4 5 6 7 8"
 
 for i in $I; do
 	echo $i
-	./exec ../imgTeste/gun.pbm ../imgResult/gun_chunk.pbm ../times/timegun_chunk.txt
-	./exec ../imgTeste/digital.pbm ../imgResult/digital_chunk.pbm ../times/timedigital_chunk.txt
-	./exec ../imgTeste/exemplo.pbm ../imgResult/exemplo_chunk.pbm ../times/timeexemplo_chunk.txt
+	./exec ../imgTeste/gun.pbm ../imgResult/gun_chunk.pbm ../times/chunk/timegun.txt
+	./exec ../imgTeste/digital.pbm ../imgResult/digital_chunk.pbm ../times/chunk/timedigital.txt
+	./exec ../imgTeste/exemplo.pbm ../imgResult/exemplo_chunk.pbm ../times/chunk/timeexemplo.txt
 done
 
-cd CP/Projeto/sequencial/chunkoptimized/
+cd ../chunkoptimized/
 
 rm -f exec
 
@@ -32,12 +32,12 @@ I="1 2 3 4 5 6 7 8"
 
 for i in $I; do
 	echo $i
-	./exec ../imgTeste/gun.pbm ../imgResult/gun_chunko.pbm ../times/timegun_chunko.txt
-	./exec ../imgTeste/digital.pbm ../imgResult/digital_chunko.pbm ../times/timedigital_chunko.txt
-	./exec ../imgTeste/exemplo.pbm ../imgResult/exemplo_chunko.pbm ../times/timeexemplo_chunko.txt
+	./exec ../imgTeste/gun.pbm ../imgResult/gun_chunko.pbm ../times/chunkoptimized/timegun.txt
+	./exec ../imgTeste/digital.pbm ../imgResult/digital_chunko.pbm ../times/chunkoptimized/timedigital.txt
+	./exec ../imgTeste/exemplo.pbm ../imgResult/exemplo_chunko.pbm ../times/chunkoptimized/timeexemplo.txt
 done
 
-cd CP/Projeto/sequencial/normal/
+cd ../normal/
 
 rm -f exec
 
@@ -47,7 +47,7 @@ I="1 2 3 4 5 6 7 8"
 
 for i in $I; do
 	echo $i
-	./exec ../imgTeste/gun.pbm ../imgResult/gun_normal.pbm ../times/timegun_normal.txt
-	./exec ../imgTeste/digital.pbm ../imgResult/digital_normal.pbm ../times/timedigital_normal.txt
-	./exec ../imgTeste/exemplo.pbm ../imgResult/exemplo_normal.pbm ../times/timeexemplo_normal.txt
+	./exec ../imgTeste/gun.pbm ../imgResult/gun_normal.pbm ../times/normal/timegun.txt
+	./exec ../imgTeste/digital.pbm ../imgResult/digital_normal.pbm ../times/normal/timedigital.txt
+	./exec ../imgTeste/exemplo.pbm ../imgResult/exemplo_normal.pbm ../times/normal/timeexemplo.txt
 done

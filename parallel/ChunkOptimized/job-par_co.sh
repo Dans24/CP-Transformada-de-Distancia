@@ -13,12 +13,12 @@ rm -f exec
 
 gcc -O3 -std=c99 -fopenmp -lm pbm.c dist.c -o exec
 
-THREADS="2 4 8 10 16 20 32 40 2 4 8 10 16 20 32 40"
+THREADS="1 2 4 8 10 16 20 32 40 1 2 4 8 10 16 20 32 40 1 2 4 8 10 16 20 32 40 1 2 4 8 10 16 20 32 40"
 
 for thread in $THREADS; do
 	echo $thread
 	export OMP_NUM_THREADS=$thread
-	./exec ../imgTeste/gun.pbm ../imgResult/gunChunkO.pbm ../times/timegunCOptimized.txt
-	./exec ../imgTeste/digital.pbm ../imgResult/digitalChunkO.pbm ../times/timedigitalCOptimized.txt
-	./exec ../imgTeste/exemplo.pbm ../imgResult/exemploChunkO.pbm ../times/timeexemploCOptimized.txt
+	./exec ../imgTeste/gun.pbm ../imgResult/gunChunkO.pbm ../times/ChunkOptimized/timegun.txt
+	./exec ../imgTeste/digital.pbm ../imgResult/digitalChunkO.pbm ../times/ChunkOptimized/timedigital.txt
+	./exec ../imgTeste/exemplo.pbm ../imgResult/exemploChunkO.pbm ../times/ChunkOptimized/timeexemplo.txt
 done

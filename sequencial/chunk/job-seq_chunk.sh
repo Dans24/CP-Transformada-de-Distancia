@@ -17,7 +17,7 @@ I="1 2 3 4 5 6 7 8"
 
 for i in $I; do
 	echo $i
-	./exec ../imgTeste/gun.pbm ../imgResult/gun_chunk.pbm ../times/timegun_chunk.txt
-	./exec ../imgTeste/digital.pbm ../imgResult/digital_chunk.pbm ../times/timedigital_chunk.txt
-	./exec ../imgTeste/exemplo.pbm ../imgResult/exemplo_chunk.pbm ../times/timeexemplo_chunk.txt
+	./exec ../imgTeste/gun.pbm ../imgResult/gun_chunk.pbm ../times/chunk/timegun.txt
+	./exec ../imgTeste/digital.pbm ../imgResult/digital_chunk.pbm ../times/chunk/timedigital.txt
+	./exec ../imgTeste/exemplo.pbm ../imgResult/exemplo_chunk.pbm ../times/chunk/timeexemplo.txt
 done

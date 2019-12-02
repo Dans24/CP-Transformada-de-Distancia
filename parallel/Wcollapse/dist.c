@@ -3,7 +3,7 @@
 int main(int argc, char* argv[]) {
     if(argc < 3) return 1;
     char* inputFilename = argv[1];
-    char* outputFilename = ARGV[2];
+    char* outputFilename = argv[2];
     char* outputTime = argv[3];
     unsigned int height;
     unsigned int width;
