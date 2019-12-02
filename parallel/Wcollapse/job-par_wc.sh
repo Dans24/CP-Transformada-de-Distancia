@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-#PBS -N CP_project_parallel
+#PBS -N CP_project_parallel_wcollapse
 #PBS -l walltime=1:00:00
 #PBS -l nodes=1:ppn=40:r652
 #PBS -qcpar

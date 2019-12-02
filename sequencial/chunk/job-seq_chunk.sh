@@ -9,6 +9,8 @@ module load gcc/5.3.0
 
 cd CP/Projeto/sequencial/chunk/
 
+rm -f exec
+
 gcc -O3 -std=c99 -fopenmp -lm pbm.c dist.c -o exec
 
 I="1 2 3 4 5 6 7 8"
