@@ -3,7 +3,7 @@
 #PBS -N CP_project_parallel_chunk
 #PBS -l walltime=1:00:00
 #PBS -l nodes=1:ppn=40:r652
-#PBS -qcpar
+#PBS -qmei
 
 module load gcc/5.3.0
 
