@@ -7,23 +7,23 @@
 
 module load gcc/5.3.0
 
-cd CP/Projeto/parallel/ChunkOptimized/
+cd CP/Projeto/parallel/ChunkOptimizedGuided/
 
 rm -f exec
 
 gcc -O3 -std=c99 -fopenmp -lm pbm.c dist.c -o exec
 
-THREADS="1 2 4 8 10 16 20 32 40 1 2 4 8 10 16 20 32 40"
+THREADS="1 2 4 8 10 16 20 32 40"
 
 for thread in $THREADS; do
 	echo $thread
 	export OMP_NUM_THREADS=$thread
-	./exec ../imgTeste/gun.pbm ../imgResult/gunChunkO.pbm ../times/ChunkOptimized/timegun.txt
-	./exec ../imgTeste/digital.pbm ../imgResult/digitalChunkO.pbm ../times/ChunkOptimized/timedigital.txt
-	./exec ../imgTeste/exemplo.pbm ../imgResult/exemploChunkO.pbm ../times/ChunkOptimized/timeexemplo.txt
+	./exec ../imgTeste/gun.pbm ../imgResult/gunChunkOGuided.pbm ../times/ChunkOptimizedGuided/timegun.txt
+	./exec ../imgTeste/digital.pbm ../imgResult/digitalChunkOGuided.pbm ../times/ChunkOptimizedGuided/timedigital.txt
+	./exec ../imgTeste/exemplo.pbm ../imgResult/exemploChunkOGuided.pbm ../times/ChunkOptimizedGuided/timeexemplo.txt
 done
 
-cd ../Chunk/
+cd ../ChunkOptimizedDynamic/
 
 rm -f exec
 
@@ -32,9 +32,37 @@ gcc -O3 -std=c99 -fopenmp -lm pbm.c dist.c -o exec
 for thread in $THREADS; do
 	echo $thread
 	export OMP_NUM_THREADS=$thread
-	./exec ../imgTeste/gun.pbm ../imgResult/gunChunk.pbm ../times/Chunk/timegun.txt
-	./exec ../imgTeste/digital.pbm ../imgResult/digitalChunk.pbm ../times/Chunk/timedigital.txt
-	./exec ../imgTeste/exemplo.pbm ../imgResult/exemploChunk.pbm ../times/Chunk/timeexemplo.txt
+	./exec ../imgTeste/gun.pbm ../imgResult/gunChunkODynamic.pbm ../times/ChunkOptimizedDynamic/timegun.txt
+	./exec ../imgTeste/digital.pbm ../imgResult/digitalChunkODynamic.pbm ../times/ChunkOptimizedDynamic/timedigital.txt
+	./exec ../imgTeste/exemplo.pbm ../imgResult/exemploChunkODynamic.pbm ../times/ChunkOptimizedDynamic/timeexemplo.txt
+done
+
+cd ../ChunkGuided/
+
+rm -f exec
+
+gcc -O3 -std=c99 -fopenmp -lm pbm.c dist.c -o exec
+
+for thread in $THREADS; do
+	echo $thread
+	export OMP_NUM_THREADS=$thread
+	./exec ../imgTeste/gun.pbm ../imgResult/gunChunkGuided.pbm ../times/ChunkGuided/timegun.txt
+	./exec ../imgTeste/digital.pbm ../imgResult/digitalChunkGuided.pbm ../times/ChunkGuided/timedigital.txt
+	./exec ../imgTeste/exemplo.pbm ../imgResult/exemploChunkGuided.pbm ../times/ChunkGuided/timeexemplo.txt
+done
+
+cd ../ChunkDynamic/
+
+rm -f exec
+
+gcc -O3 -std=c99 -fopenmp -lm pbm.c dist.c -o exec
+
+for thread in $THREADS; do
+	echo $thread
+	export OMP_NUM_THREADS=$thread
+	./exec ../imgTeste/gun.pbm ../imgResult/gunChunkDynamic.pbm ../times/ChunkDynamic/timegun.txt
+	./exec ../imgTeste/digital.pbm ../imgResult/digitalChunkDynamic.pbm ../times/ChunkDynamic/timedigital.txt
+	./exec ../imgTeste/exemplo.pbm ../imgResult/exemploChunkDynamic.pbm ../times/ChunkDynamic/timeexemplo.txt
 done
 
 cd ../WOcollapse/

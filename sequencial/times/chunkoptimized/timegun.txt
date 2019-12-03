@@ -14,3 +14,5 @@ Algorithm time : 13.312717
 Algorithm time : 13.312708
 Algorithm time : 13.316774
 Algorithm time : 13.313369
+
+Média algoritmo: 13.3...
