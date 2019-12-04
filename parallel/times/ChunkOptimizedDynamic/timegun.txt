@@ -1,44 +1,98 @@
+Tempo do algoritmo com 1 threads : 13.712839
 Tempo do algoritmo com 1 threads : 13.719922
+Tempo do algoritmo com 1 threads : 13.741497
 Tempo do algoritmo com 1 threads : 13.748255
+Tempo do algoritmo com 1 threads : 13.750499
 Tempo do algoritmo com 1 threads : 13.752309
 Tempo do algoritmo com 1 threads : 13.752514
+Tempo do algoritmo com 1 threads : 14.252976
 
+Média algoritmo com 1 thread : 
+
+Tempo do algoritmo com 2 threads : 7.151555
+Tempo do algoritmo com 2 threads : 7.151746
 Tempo do algoritmo com 2 threads : 7.160333
+Tempo do algoritmo com 2 threads : 7.164792
 Tempo do algoritmo com 2 threads : 7.165607
 Tempo do algoritmo com 2 threads : 7.168880
+Tempo do algoritmo com 2 threads : 7.172374
 Tempo do algoritmo com 2 threads : 7.259963
+
+Média algoritmo com 2 thread : 
 
 Tempo do algoritmo com 4 threads : 4.338581
 Tempo do algoritmo com 4 threads : 4.340649
 Tempo do algoritmo com 4 threads : 4.341631
+Tempo do algoritmo com 4 threads : 4.343337
+Tempo do algoritmo com 4 threads : 4.343771
 Tempo do algoritmo com 4 threads : 4.343998
+Tempo do algoritmo com 4 threads : 4.344400
+Tempo do algoritmo com 4 threads : 4.344626
 
+Média algoritmo com 4 thread : 
+
+Tempo do algoritmo com 8 threads : 4.313293
+Tempo do algoritmo com 8 threads : 4.314257
 Tempo do algoritmo com 8 threads : 4.317126
 Tempo do algoritmo com 8 threads : 4.317370
+Tempo do algoritmo com 8 threads : 4.319384
 Tempo do algoritmo com 8 threads : 4.321154
+Tempo do algoritmo com 8 threads : 4.322797
 Tempo do algoritmo com 8 threads : 4.327749
 
+Média algoritmo com 8 thread : 
+
 Tempo do algoritmo com 10 threads : 4.319505
+Tempo do algoritmo com 10 threads : 4.319565
 Tempo do algoritmo com 10 threads : 4.320764
 Tempo do algoritmo com 10 threads : 4.321220
+Tempo do algoritmo com 10 threads : 4.325477
+Tempo do algoritmo com 10 threads : 4.326361
+Tempo do algoritmo com 10 threads : 4.327246
 Tempo do algoritmo com 10 threads : 4.327470
 
+Média algoritmo com 10 thread : 
+
+Tempo do algoritmo com 16 threads : 4.330159
+Tempo do algoritmo com 16 threads : 4.332673
 Tempo do algoritmo com 16 threads : 4.334971
 Tempo do algoritmo com 16 threads : 4.386838
 Tempo do algoritmo com 16 threads : 4.387029
 Tempo do algoritmo com 16 threads : 4.393120
+Tempo do algoritmo com 16 threads : 4.396220
+Tempo do algoritmo com 16 threads : 4.506913
 
+Média algoritmo com 16 thread : 
+
+Tempo do algoritmo com 20 threads : 4.468820
 Tempo do algoritmo com 20 threads : 4.486396
 Tempo do algoritmo com 20 threads : 4.531456
 Tempo do algoritmo com 20 threads : 4.556065
+Tempo do algoritmo com 20 threads : 4.557687
 Tempo do algoritmo com 20 threads : 4.569256
+Tempo do algoritmo com 20 threads : 4.646005
+Tempo do algoritmo com 20 threads : 4.700596
+
+Média algoritmo com 20 thread : 
 
 Tempo do algoritmo com 32 threads : 5.493858
+Tempo do algoritmo com 32 threads : 5.520470
+Tempo do algoritmo com 32 threads : 5.521187
 Tempo do algoritmo com 32 threads : 5.530851
 Tempo do algoritmo com 32 threads : 5.560127
+Tempo do algoritmo com 32 threads : 5.585794
+Tempo do algoritmo com 32 threads : 5.658753
 Tempo do algoritmo com 32 threads : 5.718476
 
+Média algoritmo com 32 thread : 
+
+Tempo do algoritmo com 40 threads : 5.990347
 Tempo do algoritmo com 40 threads : 6.033561
+Tempo do algoritmo com 40 threads : 6.043516
 Tempo do algoritmo com 40 threads : 6.043522
 Tempo do algoritmo com 40 threads : 6.080159
 Tempo do algoritmo com 40 threads : 6.085029
+Tempo do algoritmo com 40 threads : 6.141551
+Tempo do algoritmo com 40 threads : 6.158012
+
+Média algoritmo com 40 thread : 
