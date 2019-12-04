@@ -7,7 +7,7 @@ Tempo do algoritmo com 1 threads : 13.752309
 Tempo do algoritmo com 1 threads : 13.752514
 Tempo do algoritmo com 1 threads : 14.252976
 
-Média algoritmo com 1 thread : 
+Média algoritmo com 1 thread : 13.7
 
 Tempo do algoritmo com 2 threads : 7.151555
 Tempo do algoritmo com 2 threads : 7.151746
@@ -18,7 +18,7 @@ Tempo do algoritmo com 2 threads : 7.168880
 Tempo do algoritmo com 2 threads : 7.172374
 Tempo do algoritmo com 2 threads : 7.259963
 
-Média algoritmo com 2 thread : 
+Média algoritmo com 2 thread : 7.1
 
 Tempo do algoritmo com 4 threads : 4.338581
 Tempo do algoritmo com 4 threads : 4.340649
@@ -29,7 +29,7 @@ Tempo do algoritmo com 4 threads : 4.343998
 Tempo do algoritmo com 4 threads : 4.344400
 Tempo do algoritmo com 4 threads : 4.344626
 
-Média algoritmo com 4 thread : 
+Média algoritmo com 4 thread : 4.3
 
 Tempo do algoritmo com 8 threads : 4.313293
 Tempo do algoritmo com 8 threads : 4.314257
@@ -40,7 +40,7 @@ Tempo do algoritmo com 8 threads : 4.321154
 Tempo do algoritmo com 8 threads : 4.322797
 Tempo do algoritmo com 8 threads : 4.327749
 
-Média algoritmo com 8 thread : 
+Média algoritmo com 8 thread : 4.3
 
 Tempo do algoritmo com 10 threads : 4.319505
 Tempo do algoritmo com 10 threads : 4.319565
@@ -51,7 +51,7 @@ Tempo do algoritmo com 10 threads : 4.326361
 Tempo do algoritmo com 10 threads : 4.327246
 Tempo do algoritmo com 10 threads : 4.327470
 
-Média algoritmo com 10 thread : 
+Média algoritmo com 10 thread : 4.3
 
 Tempo do algoritmo com 16 threads : 4.330159
 Tempo do algoritmo com 16 threads : 4.332673
@@ -62,7 +62,7 @@ Tempo do algoritmo com 16 threads : 4.393120
 Tempo do algoritmo com 16 threads : 4.396220
 Tempo do algoritmo com 16 threads : 4.506913
 
-Média algoritmo com 16 thread : 
+Média algoritmo com 16 thread : 4.3
 
 Tempo do algoritmo com 20 threads : 4.468820
 Tempo do algoritmo com 20 threads : 4.486396
@@ -73,7 +73,7 @@ Tempo do algoritmo com 20 threads : 4.569256
 Tempo do algoritmo com 20 threads : 4.646005
 Tempo do algoritmo com 20 threads : 4.700596
 
-Média algoritmo com 20 thread : 
+Média algoritmo com 20 thread : 4.5
 
 Tempo do algoritmo com 32 threads : 5.493858
 Tempo do algoritmo com 32 threads : 5.520470
@@ -84,7 +84,7 @@ Tempo do algoritmo com 32 threads : 5.585794
 Tempo do algoritmo com 32 threads : 5.658753
 Tempo do algoritmo com 32 threads : 5.718476
 
-Média algoritmo com 32 thread : 
+Média algoritmo com 32 thread : 5.5
 
 Tempo do algoritmo com 40 threads : 5.990347
 Tempo do algoritmo com 40 threads : 6.033561
@@ -95,4 +95,4 @@ Tempo do algoritmo com 40 threads : 6.085029
 Tempo do algoritmo com 40 threads : 6.141551
 Tempo do algoritmo com 40 threads : 6.158012
 
-Média algoritmo com 40 thread : 
+Média algoritmo com 40 thread : 6.0

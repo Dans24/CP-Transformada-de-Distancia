@@ -66,7 +66,7 @@ unsigned int dist(unsigned int height, unsigned int width, pixel (*img)[width], 
             }
             int i = height / (chunkHeight - 1);
             int ci = i / (chunkHeight-2);
-            #pragma omp for schedule(guided) nowait reduction(||:whitePixel)
+            #pragma omp for schedule(dynamic) nowait reduction(||:whitePixel)
             for(int j = 1; j < width - chunkHeight - 1; j += chunkWidth - 1) {
                 int cj = j / (chunkWidth-2);
                 if(hasWhite[ci][cj] == 0) continue;
