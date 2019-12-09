@@ -65,7 +65,7 @@ for thread in $THREADS; do
 	./exec ../imgTeste/exemplo.pbm ../imgResult/exemploChunkDynamic.pbm ../times/ChunkDynamic/timeexemplo.txt
 done
 
-cd ../WOcollapse/
+cd ../Simplista/
 
 rm -f exec
 
@@ -74,21 +74,7 @@ gcc -O3 -std=c99 -fopenmp -lm pbm.c dist.c -o exec
 for thread in $THREADS; do
 	echo $thread
 	export OMP_NUM_THREADS=$thread
-	./exec ../imgTeste/gun.pbm ../imgResult/gunWOcollapse.pbm ../times/WOcollapse/timegun.txt
-	./exec ../imgTeste/digital.pbm ../imgResult/digitalWOcollapse.pbm ../times/WOcollapse/timedigital.txt
-	./exec ../imgTeste/exemplo.pbm ../imgResult/exemploWOcollapse.pbm ../times/WOcollapse/timeexemplo.txt
-done
-
-cd ../Wcollapse/
-
-rm -f exec
-
-gcc -O3 -std=c99 -fopenmp -lm pbm.c dist.c -o exec
-
-for thread in $THREADS; do
-	echo $thread
-	export OMP_NUM_THREADS=$thread
-	./exec ../imgTeste/gun.pbm ../imgResult/gunWcollapse.pbm ../times/Wcollapse/timegun.txt
-	./exec ../imgTeste/digital.pbm ../imgResult/digitalWcollapse.pbm ../times/Wcollapse/timedigital.txt
-	./exec ../imgTeste/exemplo.pbm ../imgResult/exemploWcollapse.pbm ../times/Wcollapse/timeexemplo.txt
+	./exec ../imgTeste/gun.pbm ../imgResult/gun.pbm ../times/Simplista/timegun.txt
+	./exec ../imgTeste/digital.pbm ../imgResult/digital.pbm ../times/Simplista/timedigital.txt
+	./exec ../imgTeste/exemplo.pbm ../imgResult/exemplo.pbm ../times/Simplista/timeexemplo.txt
 done

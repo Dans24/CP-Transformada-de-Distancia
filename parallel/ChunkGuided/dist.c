@@ -49,14 +49,14 @@ unsigned int dist(unsigned int height, unsigned int width, pixel (*img)[width], 
             #pragma omp for schedule(guided) nowait reduction(||:whitePixel)
             for(int i = 1; i < height - chunkHeight - 1; i += chunkHeight - 1) {
                 for(int j = 1; j < width - chunkHeight - 1; j += chunkWidth - 1) {
-                    whitePixel = distChunk(i, j, chunkHeight, chunkWidth, height, width, img, aux);
+                    whitePixel |= distChunk(i, j, chunkHeight, chunkWidth, height, width, img, aux);
                 }
             }
             int i = height / (chunkHeight - 1);
             int ci = i / (chunkHeight-2);
             #pragma omp for schedule(guided) nowait reduction(||:whitePixel)
             for(int j = 1; j < width - chunkHeight - 1; j += chunkWidth - 1) {
-                whitePixel = distChunk(i, j, height - i - 1, width - 1, height, width, img, aux);
+                whitePixel |= distChunk(i, j, height - i - 1, width - 1, height, width, img, aux);
             }
         }
         pixel (*temp)[width] = img;
