@@ -7,7 +7,7 @@
 
 module load gcc/5.3.0
 
-cd CP/Projeto/sequencial/chunk/
+cd CP/Projeto/sequencial/Chunk/
 
 rm -f exec
 
@@ -17,12 +17,12 @@ I="1 2 3 4 5 6 7 8"
 
 for i in $I; do
 	echo $i
-	./exec ../imgTeste/gun.pbm ../imgResult/gun_chunk.pbm ../times/chunk/timegun.txt
-	./exec ../imgTeste/digital.pbm ../imgResult/digital_chunk.pbm ../times/chunk/timedigital.txt
-	./exec ../imgTeste/exemplo.pbm ../imgResult/exemplo_chunk.pbm ../times/chunk/timeexemplo.txt
+	./exec ../imgTeste/gun.pbm ../imgResult/gun_chunk.pbm ../times/Chunk/timegun.txt
+	./exec ../imgTeste/digital.pbm ../imgResult/digital_chunk.pbm ../times/Chunk/timedigital.txt
+	./exec ../imgTeste/exemplo.pbm ../imgResult/exemplo_chunk.pbm ../times/Chunk/timeexemplo.txt
 done
 
-cd ../chunkoptimized/
+cd ../Chunkoptimized/
 
 rm -f exec
 
@@ -32,12 +32,12 @@ I="1 2 3 4 5 6 7 8"
 
 for i in $I; do
 	echo $i
-	./exec ../imgTeste/gun.pbm ../imgResult/gun_chunko.pbm ../times/chunkoptimized/timegun.txt
-	./exec ../imgTeste/digital.pbm ../imgResult/digital_chunko.pbm ../times/chunkoptimized/timedigital.txt
-	./exec ../imgTeste/exemplo.pbm ../imgResult/exemplo_chunko.pbm ../times/chunkoptimized/timeexemplo.txt
+	./exec ../imgTeste/gun.pbm ../imgResult/gun_chunko.pbm ../times/Chunkoptimized/timegun.txt
+	./exec ../imgTeste/digital.pbm ../imgResult/digital_chunko.pbm ../times/Chunkoptimized/timedigital.txt
+	./exec ../imgTeste/exemplo.pbm ../imgResult/exemplo_chunko.pbm ../times/Chunkoptimized/timeexemplo.txt
 done
 
-cd ../normal/
+cd ../Simplista/
 
 rm -f exec
 
@@ -47,7 +47,7 @@ I="1 2 3 4 5 6 7 8"
 
 for i in $I; do
 	echo $i
-	./exec ../imgTeste/gun.pbm ../imgResult/gun_normal.pbm ../times/normal/timegun.txt
-	./exec ../imgTeste/digital.pbm ../imgResult/digital_normal.pbm ../times/normal/timedigital.txt
-	./exec ../imgTeste/exemplo.pbm ../imgResult/exemplo_normal.pbm ../times/normal/timeexemplo.txt
+	./exec ../imgTeste/gun.pbm ../imgResult/gun.pbm ../times/Simplista/timegun.txt
+	./exec ../imgTeste/digital.pbm ../imgResult/digital.pbm ../times/Simplista/timedigital.txt
+	./exec ../imgTeste/exemplo.pbm ../imgResult/exemplo.pbm ../times/Simplista/timeexemplo.txt
 done

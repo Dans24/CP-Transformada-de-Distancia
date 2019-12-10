@@ -7,7 +7,7 @@
 
 module load gcc/5.3.0
 
-cd CP/Projeto/sequencial/chunk/
+cd CP/Projeto/sequencial/Chunk/
 
 rm -f exec
 
@@ -17,7 +17,7 @@ I="1 2 3 4 5 6 7 8"
 
 for i in $I; do
 	echo $i
-	./exec ../imgTeste/gun.pbm ../imgResult/gun_chunk.pbm ../times/chunk/timegun.txt
-	./exec ../imgTeste/digital.pbm ../imgResult/digital_chunk.pbm ../times/chunk/timedigital.txt
-	./exec ../imgTeste/exemplo.pbm ../imgResult/exemplo_chunk.pbm ../times/chunk/timeexemplo.txt
+	./exec ../imgTeste/gun.pbm ../imgResult/gun_chunk.pbm ../times/Chunk/timegun.txt
+	./exec ../imgTeste/digital.pbm ../imgResult/digital_chunk.pbm ../times/Chunk/timedigital.txt
+	./exec ../imgTeste/exemplo.pbm ../imgResult/exemplo_chunk.pbm ../times/Chunk/timeexemplo.txt
 done
