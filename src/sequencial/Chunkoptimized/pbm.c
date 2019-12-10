@@ -57,14 +57,3 @@ void printImage(unsigned int height, unsigned int width, pixel (*img)[width]) {
         printf("\n");
     }
 }
-
-/*
-int main() {
-    FILE* f = fopen("exemplo.pbm", "r");
-    int height = -1;
-    int width = -1;
-    pixel (*image)[height][width] = (pixel (*)[height][width]) getImageP1(f, &height, &width);
-    printf("\n\n");
-    printImage(height, width, image);
-}
-*/
