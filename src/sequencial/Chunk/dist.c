@@ -29,10 +29,10 @@ int main(int argc, char* argv[]) {
 unsigned int dist(unsigned int height, unsigned int width, pixel (*img)[width], pixel (**output)[width]) {
     pixel (*aux)[width] = calloc(1, sizeof(pixel[height][width]));
     int iter;
-    int whitePixel = 1; // inicializado a 1 para entrar no for loop
+    int whitePixel = 1;
     int chunkHeight = 256;
     int chunkWidth = 2048;
-    for (iter = 1; iter < MAX_PIXEL_VALUE && whitePixel; iter++) { // trocar por um "do while"?
+    for (iter = 1; iter < MAX_PIXEL_VALUE && whitePixel; iter++) {
         whitePixel = 0;
         for(int i = 1; i < height - chunkHeight - 1; i += chunkHeight - 1) {
             for(int j = 1; j < width - chunkHeight - 1; j += chunkWidth - 1) {
@@ -60,7 +60,7 @@ int distChunk(unsigned int ii, unsigned int jj, unsigned int height, unsigned in
     int whitePixel = 0;
     for (int i = ii; i < height + ii; i++) {
         for (int j = jj; j < width + jj; j++) {
-            if (in[i][j] == MIN_PIXEL_VALUE) continue; // avança pixeis pretos
+            if (in[i][j] == MIN_PIXEL_VALUE) continue;
             pixel min = MAX_PIXEL_VALUE;
             for (int ki = -1; ki <= 1; ki++) {
                 for (int kj = -1; kj <= 1; kj++) {
