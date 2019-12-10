@@ -36,14 +36,14 @@ int main(int argc, char* argv[]) {
 unsigned int dist(unsigned int height, unsigned int width, pixel (*img)[width], pixel (**output)[width]) {
     pixel (*aux)[width] = calloc(1, sizeof(pixel[height][width]));
     int iter;
-    int whitePixel = 1; // inicializado a 1 para entrar no for loop
+    int whitePixel = 1;
     #pragma omp parallel
-    for (iter = 1; iter < MAX_PIXEL_VALUE && whitePixel; iter++) { // trocar por um "do while"?
+    for (iter = 1; iter < MAX_PIXEL_VALUE && whitePixel; iter++) {
         whitePixel = 0;
         #pragma omp for schedule(guided)
         for (int i = 1; i < height - 1; i++) {
             for (int j = 1; j < width - 1; j++) {
-                if (img[i][j] == MIN_PIXEL_VALUE) continue; // avança pixeis pretos
+                if (img[i][j] == MIN_PIXEL_VALUE) continue;
                 pixel min = MAX_PIXEL_VALUE;
                 for (int ki = -1; ki <= 1; ki++) {
                     for (int kj = -1; kj <= 1; kj++) {
